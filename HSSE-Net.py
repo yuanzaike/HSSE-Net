@@ -346,7 +346,7 @@ class HSSE(nn.Module):
         x_2 = self.encoder_embedding2(x_flat2)
         x_3 = self.encoder_embedding3(x_flat3)
         #使用全连接层。将输入的特征进行线性变换，映射到指定的输出维度。
-        x_cnn = self.Merge(x_1, x_2, x_3, self.encoder_embed_dim)  # x_cnn:64*64*(p*p)
+        x_cnn = self.merge(x_1, x_2, x_3, self.encoder_embed_dim)  # x_cnn:64*64*(p*p)
 
 
         x_spa = torch.einsum('ndl->nld', x_cnn)
